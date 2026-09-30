@@ -1,0 +1,15 @@
+[Unit]
+Description=Lobex Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/lobex-service
+EnvironmentFile=/opt/lobex-service/.env
+ExecStart=/usr/bin/node /opt/lobex-service/src/server.js
+Restart=always
+RestartSec=5
+User=www-data
+
+[Install]
+WantedBy=multi-user.target
